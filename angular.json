@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "nike-rest-front"
+    }
+  },
+  "defaultProject": "nike-rest-front",
+  "cli": {
+    "analytics": false
+  }
 }
