@@ -1,15 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticleService } from '../services/article.service';
+import { Article } from '../models/article';
 
-@Component({
+@Component( {
   selector: 'app-article',
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.css']
-})
+} )
 export class ArticleComponent implements OnInit {
 
-  constructor() { }
+  articles: Array<Article>;
 
-  ngOnInit(): void {
+  constructor( private articleService: ArticleService ) { }
+
+  ngOnInit (): void {
+    this.articleService.findAll().subscribe( articlesResp => {
+      this.articles = articlesResp;
+      console.log( this.articles );
+
+    } );
   }
 
 }
